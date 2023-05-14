@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Aval\Config\Factory;
+
+use Aval\Config\ConfigDriver;
+use Aval\Config\Contracts\ConfigDriverInterface;
+
+class ConfigDriverFactory
+{
+
+    public function createConfigDriver(
+        string $driver = '',
+        string  $host = '',
+        int  $port = 80,
+        string  $username = '',
+        string  $password = ''
+    )
+    : ConfigDriverInterface
+    {
+        return new ConfigDriver($driver,  $host,  $port,  $username,  $password);
+    }
+
+    public function get() :array
+    {
+        return [
+            'driver' => '',
+            'host' => '',
+            'port' => '',
+            'username' => '',
+            'password' => '',
+        ];
+    }
+}
