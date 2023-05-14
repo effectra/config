@@ -30,9 +30,92 @@ use Effectra\Config\ConfigEditor;
 
 2. Use the provided classes to handle configuration settings based on your application's requirements.
 
-## Documentation
+### Example 1: Reading and Manipulating Configuration Files
 
-For detailed usage instructions and API reference, please refer to the [documentation](link-to-documentation).
+```php
+use Effectra\Config\ConfigFile;
+
+// Create a ConfigFile instance with the path to your configuration file
+$configFile = new ConfigFile('/path/to/config.ini');
+
+// Read the configuration settings from the file
+$config = $configFile->read();
+
+// Access specific sections and settings
+$databaseConfig = $configFile->getSection('database');
+$host = $databaseConfig['host'];
+$username = $databaseConfig['username'];
+
+// Modify a setting and write the changes back to the file
+$config['app']['debug'] = true;
+$configFile->setFile('/path/to/config.ini')->write($config);
+```
+
+### Example 2: Creating and Managing ConfigDriver
+
+```php
+use Effectra\Config\ConfigDriver;
+
+// Create a ConfigDriver instance with initial settings
+$driver = new ConfigDriver('mysql', 'localhost', 3306, 'username', 'password');
+
+// Get the current driver details
+$driverName = $driver->getDriver();
+$host = $driver->getHost();
+
+// Update the driver settings
+$driver = $driver->withHost('newhost')->withPort(8888);
+
+// Get the updated driver details
+$newHost = $driver->getHost();
+$newPort = $driver->getPort();
+```
+
+### Example 3: Creating and Modifying ConfigCookie
+
+```php
+use Effectra\Config\ConfigCookie;
+
+// Create a ConfigCookie instance with initial attributes
+$cookie = new ConfigCookie('session', 'abc123', 3600, '/', 'example.com', true, true);
+
+// Get the cookie attributes
+$name = $cookie->getName();
+$secure = $cookie->getSecure();
+
+// Create a new cookie instance with updated attributes
+$newCookie = $cookie->withExpireOrOptions(7200)->withSecure(false);
+
+// Get the updated cookie attributes
+$newExpire = $newCookie->getExpireOrOptions();
+$newSecure = $newCookie->getSecure();
+```
+
+### Example 4: Parsing EditorConfig File
+
+```php
+use Effectra\Config\ConfigEditor;
+
+// Create a ConfigEditor instance with the path to an EditorConfig file
+$editorConfig = new ConfigEditor('/path/to/.editorconfig');
+
+// Get the root value from the EditorConfig file
+$root = $editorConfig->getRoot();
+
+// Get the indent_size and end_of_line settings
+$indentSize = $editorConfig->getIndentSize();
+$endOfLine = $editorConfig->getEndOfLine();
+
+// Check if a charset setting is defined
+if ($editorConfig->hasSection('charset')) {
+    $charsetSettings = $editorConfig->getSection('charset');
+    // Process the charset settings
+} else {
+    // Handle the case when charset settings are not present
+}
+```
+
+Feel free to adjust the examples according to your specific needs and use cases.
 
 ## Contributing
 
