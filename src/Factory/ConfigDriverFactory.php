@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Aval\Config\Factory;
+namespace Effectra\Config\Factory;
 
-use Aval\Config\ConfigDriver;
-use Aval\Config\Contracts\ConfigDriverInterface;
+use Effectra\Config\ConfigDriver;
+use Effectra\Config\Contracts\ConfigDriverInterface;
 
 class ConfigDriverFactory
 {
