@@ -34,7 +34,7 @@ class ConfigDB extends ConfigDriver
      * @param string $prefix
      * @param bool $prefix_indexes
      * @param bool $strict
-     * @param mixed $engine
+     * @param string $engine
      * @param array $options
      */
     public function __construct(
