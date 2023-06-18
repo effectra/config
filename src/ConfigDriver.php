@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Effectra\Config;
 
+/**
+ * Class ConfigDriver
+ *
+ * Represents a configuration for a driver.
+ */
 use Effectra\Config\Contracts\ConfigDriverInterface;
 
 class ConfigDriver extends Config implements ConfigDriverInterface
