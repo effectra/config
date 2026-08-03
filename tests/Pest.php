@@ -1,0 +1,3 @@
+<?php
+
+// Pest bootstrap file.

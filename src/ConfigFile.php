@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Effectra\Config;
 
 use Effectra\Config\Exception\InvalidConfigFileException;
-use Effectra\Fs\File;
+
 
 class ConfigFile extends Config
 {
@@ -66,7 +66,7 @@ class ConfigFile extends Config
      */
     public function read(): array
     {
-        if (!File::exists($this->getFile())) {
+        if (!file_exists($this->getFile())) {
             throw new InvalidConfigFileException("Error processing file: " . $this->getFile());
         }
 

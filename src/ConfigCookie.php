@@ -240,7 +240,7 @@ class ConfigCookie extends Config implements ConfigCookieInterface
     public function withPrefix(string $value = ""): ConfigCookieInterface
     {
         $clone = clone $this;
-        $clone->value = $value;
+        $clone->prefix = $value;
         return $clone;
     }
 }

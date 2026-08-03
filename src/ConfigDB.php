@@ -38,9 +38,9 @@ class ConfigDB extends ConfigDriver
      * @param array $options
      */
     public function __construct(
-        string $driver = 'mysql',
+        string $driver,
         string $host,
-        int $port = 3306,
+        int $port,
         string $username,
         string $password,
         string $database,

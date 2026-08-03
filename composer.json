@@ -11,11 +11,35 @@
     "authors": [
         {
             "name": "Mohammed Taha",
-            "email": "info@mohammedtaha.net"
+            "email": "info@mohammedtaha.site"
         }
     ],
-    "require": {
-       
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "_ide_helper.php"
+        ]
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.2",
+        "mrpunyapal/peststan": "^0.2.12",
+        "phpstan/extension-installer": "^1.4",
+        "illuminate/support": "^13.22",
+        "spatie/laravel-package-tools": "^1.93",
+        "barryvdh/laravel-ide-helper": "^3.7"
+    },
+    "scripts": {
+        "test": "pest",
+        "phpstan": "phpstan analyse"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    }
 }
